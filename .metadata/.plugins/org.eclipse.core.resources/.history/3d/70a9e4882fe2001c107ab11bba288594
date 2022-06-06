@@ -1,0 +1,29 @@
+package jdbc.oracle;
+
+import java.awt.Color;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class LoginView extends JFrame {
+	JPanel jp_center = new JPanel();
+	JPanel jp_east = new JPanel();
+	
+	
+	LoginView(){
+		
+	}
+	public void initDisplay() {
+		jp_center.setBackground(Color.orange);
+		jp_east.setBackground(Color.green);
+		this.pack();
+		this.add("Center", jp_center);
+		this.add("East",jp_east);
+		this.setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		new LoginView();
+	}
+
+}

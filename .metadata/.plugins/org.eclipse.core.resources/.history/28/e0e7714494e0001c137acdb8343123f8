@@ -1,0 +1,56 @@
+package jdbc.oracle;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class LoginDao extends JFrame implements ActionListener	{
+	JPanel 	 jp_north  = new JPanel();
+	JTextField jtf_id  = new JTextField("아이디", 10);
+	JButton jbtn_check = new JButton("ID중복검사");
+	
+	public LoginDao(){
+		initDisplay();
+	}
+	
+	public void initDisplay() {
+		
+		jp_north.setLayout(new BorderLayout());
+		jp_north.add("Center", jtf_id);
+		jp_north.add("East",jbtn_check);
+		this.add("North",jp_north);
+		this.setSize(500,300);
+		this.setVisible(true);
+		
+	}
+	
+	
+	/*********************************************************************************************************
+	 * 아이디 중복체크
+	 * @param mem_id - 사용자가 입력한 아이디
+	 * @return 1: 아이디 존재함, 0 : 아이디 사용가능함, -1:디폴트 -end of file
+	 */
+	public int idCheck(String mem_id) {
+		int result = -1;
+		return result;
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		LoginDao loginDao = new LoginDao();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object obj = e.getSourtce();
+		
+		
+	}
+
+}

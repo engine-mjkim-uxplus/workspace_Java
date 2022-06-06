@@ -1,0 +1,15 @@
+package jdbc.oracle;
+
+import javax.swing.JFrame;
+
+public class LoginView extends JFrame {
+	LoginView(){
+		
+	}
+	
+	
+	public static void main(String[] args) {
+
+	}
+
+}

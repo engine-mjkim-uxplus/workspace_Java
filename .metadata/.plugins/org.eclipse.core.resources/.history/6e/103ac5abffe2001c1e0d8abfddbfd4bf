@@ -1,0 +1,16 @@
+package jdbc.oracle;
+
+import javax.swing.JFrame;
+
+public class EmpSumList extends JFrame{
+	public EmpSumList() {
+		initDisplay();
+	}
+	public void initDisplay() {
+		
+	}
+	public static void main(String[] args) {
+		new EmpSumList();
+	}
+
+}

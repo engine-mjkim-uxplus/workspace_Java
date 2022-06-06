@@ -1,0 +1,35 @@
+package jdbc.oracle;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+import java.util.Map;
+
+import javax.swing.JFrame;
+
+public class EmpSumList extends JFrame implements ActionListener{
+	public EmpSumList() {
+		initDisplay();
+	}
+	
+	public List<Map<String,Object>> getEmpSumList(){
+		System.out.println("getEmpSumList 호출 성공");
+		List<Map<String,Object>>list =null;
+		
+		return list;
+	}
+	
+	public void initDisplay() {
+	}
+	
+	public static void main(String[] args) {
+		new EmpSumList();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
