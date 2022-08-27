@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ZipcodeVO.java&apos; to &apos;dev_java/src/ajdbc.zipcode&apos;&#x0D;&#x0A;- Original project: &apos;mj&apos;&#x0D;&#x0A;- Destination element: &apos;dev_java/src/ajdbc.zipcode&apos;&#x0D;&#x0A;- Original element: &apos;jdbc.ZipcodeVO.java&apos;" description="Copy compilation unit" destination="=dev_java/src&lt;ajdbc.zipcode" element1="/src&lt;jdbc{ZipcodeVO.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1654702644880" units="1" version="1.0"/>
+</session>

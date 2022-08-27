@@ -1,9 +1,0 @@
-package jdbc.oracle;
-
-public class EmpSumList {
-
-	public static void main(String[] args) {
-
-	}
-
-}
