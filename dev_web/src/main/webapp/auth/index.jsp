@@ -6,6 +6,9 @@
     <meta charset="UTF-8">
     <title>인증처리 - 쿠키와 세션</title>
 	<%@ include file="../common/easyui_common.jsp" %>
+	<style type="text/css">
+	a{text-decoration:none;}
+	</style>
 	<script type="text/javascript">
 		function login(){
 			const tb_id = $("#mem_id").val();
@@ -15,27 +18,45 @@
 		function logout(){
 			location.href="./logout.jsp";
 		}
+		// 순서지향적인, 절차지향적인 코딩 -> 모듈화 -> 비동기처럼 처리 하기(연습-await, async)
 		function memberList(){
 			alert("회원목록 호출 성공");
+			//before
+			//아래 코드는 클라이언트 측에 같이 다운로드가 완료된 상태에서 처리가 된다 - 결정이 되었다.
+			//시점
+			//jeasyUI datagrid에서도 get방식과 psot방식 지원함 - 차이점
+			//url소석에 XXX.jsp가 오면 표준 서블릿인 HttpServlet이 관여하는 것이고
+			//XXX.PJ로 요청하면 ActionSupport가 관여하는 것이다
+			$("#dg_member").datagrid({
+				//오라클서버에서 요청한 결과를 myBatis를 사용하면 자동으로 컬럼명이 대문자
+				//단 List<XXXVO>형태라면 그땐 소문자 된다
+				columns:[[
+					{field: 'MEM_ID', title:'아이디', width: 100}
+				   ,{field: 'MEM_NAME', title:'이름', width: 120}
+				   ,{field: 'MEM_ADDRESS', title:'주소', width: 200}
+				]]
+				,method: "post"
+			   	,url:"/member/memberList.pj" // 응답페이지는 JSON포맷의 파일이어야 한다(html이 아니라)
+			});
+			$("#d_member").show();
+			//after
+
+			$("#d_memberInsert").hide();
+		}
+		function memberInsert(){
+			alert("회원등록 호출 성공");
+			$("#d_member").hide();
+			$("#d_memberInsert").show();
 		}
 	</script>
 </head>
 <body>
 <script>
 	//DOM트리가 다 그려 진거니? - yes
+	//DON트리가 그려졌을 때 - 준비되었을 때
 	$(document).ready(function(){
-		$("#dg_member").datagrid({
-			columns:[[
-				{field: 'mem_id', title:'아이디', width: 100}
-			   ,{field: 'mem_name', title:'이름', width: 120}
-			   ,{field: 'mem_address', title:'주소', width: 200}
-			]]
-		   ,data:[
-			   {mem_id:'tomato', mem_name:'이순신', mem_address: '서울시 마포구 공덕동'}
-			  ,{mem_id:'apple', mem_name:'강감찬', mem_address: '서울시 강남구 대치동'}
-			  ,{mem_id:'nice', mem_name:'김유신', mem_address: '서울시 강남구 역삼동'}
-		   ]
-		});
+		$("#d_member").hide();
+		$("#d_memberInsert").hide();
 	});
 </script>
     <div style="margin:20px 0;"></div>
@@ -99,12 +120,12 @@
     <ul id="tre_gym" class="easyui-tree" style="margin:0 6px;">
         <li data-options="state:'closed'">
             <span>회원관리</span>
-            <ul class="member">
+            <ul>
                 <li>
-                    회원목록
+                    <a href="javascript:memberList()">회원목록</a>
                 </li>
                 <li>
-                    회원등록
+                   <a href="javascript:memberInsert()"> 회원등록</a>
                 </li>
                 <li>
                     회원삭제
@@ -140,11 +161,23 @@
     </div>          
 <!--################ 메뉴 영역  끝  ################-->
         <div data-options="region:'center',title:'TerrGYM System',iconCls:'icon-ok'">
+        
+        <!-- [[ 회원 관리 {회원목록, 회원등록, 회원삭제}]] -->	
+        	<div id="d_member">
         	<div style="margin: 5px 0;"></div>
         	Home > 회원관리 > 회원목록
         	<hr>
         	<div style="margin: 20px 0;"></div>
         	<div id="dg_member"></div>
+        	</div>
+        	<div id="d_memberInsert">
+        	<div style="margin: 5px 0;"></div>
+        	Home > 회원관리 > 회원목록
+        	<hr>
+        	<div style="margin: 20px 0;"></div>
+        	<div>회원등록화면 보여주기</div>
+        	</div>
+        <!-- [[ 쪽지 관리 {받은 쪽지함, 보낸 쪽지함} ]] -->
         </div>
     </div>
  

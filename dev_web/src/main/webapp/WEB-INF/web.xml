@@ -13,7 +13,7 @@
 		<servlet-name>firstServlet</servlet-name>
 		<url-pattern>/day1/hello.do</url-pattern>
 	</servlet-mapping>
-		<servlet>
+	<servlet>
 		<servlet-name>FrontMVC1</servlet-name>
 		<servlet-class>com.mvc.step1.FrontMVC</servlet-class>
 	</servlet>
