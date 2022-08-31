@@ -15,11 +15,11 @@
 		</dataSource>
 		</environment>
 	</environments>
+	<!-- 물리적 기입 경로  -->
 	<mappers>
-	<!-- 물리적 경로 기입 -->
 		<mapper resource="com/mybatis/mapper/board.xml" />
 		<mapper resource="com/mybatis/mapper/auth.xml" />
-		<mapper resource="com/mybatis/mapper/member.xml" /> 
+		<mapper resource="com/mybatis/mapper/member.xml" />
 <!-- 		<mapper resource="address/view3/board.xml" /> -->
 <!-- 		<mapper resource="address/view3/board.xml" /> -->
 <!-- 		<mapper resource="address/view3/board.xml" /> -->

@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="crudBtnSel"/>
+		<item key="selection" value="zip"/>
 		<list key="findhistory">
+			<item value="test"/>
 			<item value="crudBtnSel"/>
 			<item value="path"/>
 			<item value="bm_"/>
@@ -17,6 +18,7 @@
 			<item value="&apos;"/>
 		</list>
 		<list key="replacehistory">
+			<item value="zip"/>
 			<item value="b_"/>
 			<item value="upmu[1]"/>
 			<item value="command"/>
