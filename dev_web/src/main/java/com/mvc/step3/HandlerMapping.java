@@ -87,6 +87,11 @@ public class HandlerMapping {
 			}
 		}
 		else if("auth".equals(upmu[0])) {//배열의 첫방에 업무폴더이름) 
+			// 인스턴스화 -> 스프링에서는 이렇게 하지 않음 - 이문장을 작성하지 않아야 한다.
+			// 문제제기 -> NullPointerException이 발생함 - 스프링이 대신 한다 -> 의존성 주입(DI)
+			// 외부(스프링)에서 필요할 때 주입[객체를 메모리에 로딩] 해줌(게으른주입)
+			// 스프링이 어떤 클래스인지는 어떻게 아는 걸까? - xml문서에 미리 등록해둠
+			// setter객체 주입법과 생성자 객체 주입법
 			controller = new AuthController();
 			if("login".equals(upmu[1])) {
 				// 파리미터로 원본을 넘긴다

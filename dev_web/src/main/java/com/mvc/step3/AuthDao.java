@@ -1,6 +1,5 @@
 package com.mvc.step3;
 
-import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -8,6 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 
 import com.util.MyBatisCommonFactory;
+import com.vo.MemberVO;
 
 public class AuthDao {
 	Logger logger = Logger.getLogger(AuthDao.class);
@@ -18,20 +18,20 @@ public class AuthDao {
 	public AuthDao() {
 		sqlSessionFactory = MyBatisCommonFactory.getSqlSessionFactory();
 	}	
-	public String login(Map<String, Object> pMap) {
+	public MemberVO login(Map<String, Object> pMap) {
 		logger.info("login 호출 성공 : "+pMap);
-		String s_name = null;
+		MemberVO mVO= null;
 		try {
 			sqlSession = sqlSessionFactory.openSession();
-			s_name = sqlSession.selectOne("login", pMap);
-			// insert here
-			logger.info(s_name);
+			mVO = sqlSession.selectOne("login", pMap);  // selectOne은 Object이다. 한개의 로우만 가지고 올 수 있는 것(마이바티스)
+			// insert here								// 여러개를 담으려면 배열로
+			logger.info(mVO.getMem_name());
 		} catch (Exception e) {
 			logger.info("Exception : "+e.toString());
 		} finally {
 			sqlSession.close();
 		}
-		return s_name;
+		return mVO;
 	}
 
 }

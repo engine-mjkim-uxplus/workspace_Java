@@ -15,7 +15,6 @@ public class MemberDao {
 	SqlSessionFactory sqlSessionFactory = null;
 	// 쿼리문 요청과 커밋 그리고 롤백 처리
 	SqlSession sqlSession = null;
-	
 	public MemberDao() {
 		//초기화 먼저 하고 싶을 때
 		//아래 객체(SqlSessionFactory)는 언제 객체주입(인스턴스화)이 일어날까요?
@@ -23,7 +22,6 @@ public class MemberDao {
 		//조회버튼이 눌렸거나 트리에서 회원목록을 선택하면
 		sqlSessionFactory = MyBatisCommonFactory.getSqlSessionFactory();
 	}
-
 	public List<Map<String, Object>> memberList(Map<String, Object> pMap) {
 		logger.info("memberList 호출 성공");
 		List<Map<String, Object>> memberList = null;
